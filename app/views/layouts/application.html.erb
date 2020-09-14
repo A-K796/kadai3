@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,51 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navdar-inverse">
+          <div class="container">
+            <nav class="nav navbar-nav navbar-left">
+              <span>Bookers</span>
+            </nav>
+            <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to "Home", user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to "Users", users_path %>
+        </li>
+        <li>
+          <%= link_to "Books", books_path %>
+        </li>
+        <li>
+          <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "About", home_about_path %>
+        </li>
+        <li>
+          <%=link_to "sign up", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "login", new_user_session_path %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+    </div>
+  </header>
+
+  <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %> 
+    
     <%= yield %>
   </body>
 </html>
+
+

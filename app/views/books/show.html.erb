@@ -1,0 +1,27 @@
+<div class="container">
+<div class="row">
+<div class="col-xs-9">
+<%= render 'users/info', book:@book_new, user:current_user %>
+<h2>Book detail</h2>
+<table class="table">
+	<tbody>
+		<tr>
+			<tb><%= link_to user_path(@book.user) do %>
+				<%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, format: 'lpeg' %>
+				<%= @book.user.name %>
+				<% end %>
+			</tb>
+			<tb><%= @book.title %></tb>
+			<tb><%= @book.body %></tb>
+			<% if @book.user == current_user %>
+			<tb><%= link_to "Edit", edit_book_path %></tb>
+			<tb>
+			<%= link_to 'Destroy', book_path(@book), method: :delete %>
+		    </tb>
+		    <% end %>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
