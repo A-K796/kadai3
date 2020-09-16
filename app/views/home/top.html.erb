@@ -1,14 +1,30 @@
+<body>
 <div class="body">
+	<div class="container">
 	<div class="row">
 		<div class="top-message col-md-offset-3 col-md-6">
-		<h1>welcome to <span class="glyphicon glyphicon-book"></span><stron>Bookers</stron> !!</h1>
-<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</p>
-<p>you can share and exchange your opinions , inpressions , and emotions</p>
-<p>about various books!</p>
-
-<%= link_to "Log in", new_user_session_path %>
-<%=link_to "Sign Up", new_user_registration_path %>
+			<h1>welcome to <span class="glyphicon glyphicon-book"></span><stron>Bookers</stron> !!</h1>
+            <p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</p>
+            <p>you can share and exchange your opinions , inpressions , and emotions</p>
+            <p>about various books!</p>
+            	<div class="btn-group-vertical col-xs-10">
+                	<div class="col-xs-10 btn btn-info btn-block">
+            	        <%= link_to "Log in", new_user_session_path %>
+                    </div>
+                    <div class="col-xs-10 btn btn-success btn-block">
+                        <%=link_to "Sign Up", new_user_registration_path %>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    </div>
+<div class="container">
+<div classs="row">
+    <div class="col-xs-3 col-xs-ofset-9 navbar-right">
+    <p>CopyRight Infratop.inc</p>
 </div>
-<p>CopyRight Infratop.inc</p>
+</div>
+</div>
+</div>
+</body>

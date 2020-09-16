@@ -1,23 +1,32 @@
+<body>
 <div class="container">
 <div class="row">
-<div class="col-xs-9">
+<div class="col-xs-3">
 <%= render 'users/info', book:@book_new, user:current_user %>
+</div>
+<div class="col-xs-9">
 <h2>Book detail</h2>
 <table class="table">
+	<thead>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th colspan="3"></th>
+	</thead>
 	<tbody>
 		<tr>
-			<tb><%= link_to user_path(@book.user) do %>
+			<td><%= link_to user_path(@book.user) do %>
 				<%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, format: 'lpeg' %>
 				<%= @book.user.name %>
 				<% end %>
-			</tb>
-			<tb><%= @book.title %></tb>
-			<tb><%= @book.body %></tb>
+			</td>
+			<td><%= @book.title %></td>
+			<td><%= @book.body %></td>
 			<% if @book.user == current_user %>
-			<tb><%= link_to "Edit", edit_book_path %></tb>
-			<tb>
+			<td><%= link_to "Edit", edit_book_path %></td>
+			<td>
 			<%= link_to 'Destroy', book_path(@book), method: :delete %>
-		    </tb>
+		    </td>
 		    <% end %>
 		</tr>
 	</tbody>
@@ -25,3 +34,4 @@
 </div>
 </div>
 </div>
+</body>

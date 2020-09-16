@@ -10,44 +10,65 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navdar-inverse">
-          <div class="container">
-            <nav class="nav navbar-nav navbar-left">
-              <span>Bookers</span>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+<!--       <nav class="navbar navbar-default">
+ -->         <div class="container">
+             <div class="row">
+            <nav class="navbar-nav navbar-left">
+              <p class="text-white">Bookers</p>
             </nav>
-            <nav>
-      <ul class="nav navbar-nav navbar-right">
+<!--             <nav>
+ -->      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", user_path(current_user) %>
+          <%= link_to user_path(current_user) do %>
+          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</p>
+          <% end %>
+
         </li>
         <li>
-          <%= link_to "Users", users_path %>
+          <%= link_to users_path do %>
+          <span class="glyphicon glyphicon-user users" aria-hidden="true"> Users</span>
+          <% end %>
         </li>
         <li>
-          <%= link_to "Books", books_path %>
+          <%= link_to books_path do %>
+          <p><span class="glyphicon glyphicon-book books" aria-hidden="true"> Books</span></p>
+          <% end %>
         </li>
         <li>
-          <%= link_to "logout", destroy_user_session_path, method: :delete %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <p><span class="glyphicon glyphicon-log-out logout" aria-hidden="true"></span> logout</p>
+          <% end %>
         </li>
         <% else %>
         <li>
-          <%= link_to "Home", root_path %>
+          <%= link_to root_path do %>
+          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</p>
+          <% end %>
         </li>
         <li>
-          <%= link_to "About", home_about_path %>
+          <%= link_to home_about_path do %>
+          <p><span class="glyphicon glyphicon-link" aria-hidden="true"></span> About</p>
+          <% end %>
         </li>
         <li>
-          <%=link_to "sign up", new_user_registration_path %>
+          <%=link_to new_user_registration_path do %>
+          <p><span class="glyphicon glyphicon-edit sign_up" aria-hidden="true"></span> sign up</p>
+          <% end %>
         </li>
         <li>
-          <%= link_to "login", new_user_session_path %>
+          <%= link_to new_user_session_path do %>
+          <p><span class="glyphicon glyphicon-log-in sign_in" aria-hidden="true"> login</span></p>
+          <% end %>
         </li>
         <% end %>
       </ul>
-    </nav>
-    </div>
-  </header>
+<!--     </nav>
+ -->    </div>
+</div>
+<!--   </nav>
+ -->  </nav>
 
   <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
@@ -56,5 +77,3 @@
     <%= yield %>
   </body>
 </html>
-
-

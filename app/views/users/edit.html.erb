@@ -1,3 +1,4 @@
+<body>
 <div class="col-xs-9">
 	<% if @user.errors.any? %>
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -29,3 +30,4 @@
 	</div>
 	<% end %>
 </div>
+</body>
